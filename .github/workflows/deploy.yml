@@ -27,10 +27,10 @@ jobs:
 
       - name: Install, build, and upload site
         uses: withastro/action@v3
-        # with:
-        #   path: .                   # Project root, if not the repo root
-        #   node-version: 22          # Node version used for the build
-        #   package-manager: pnpm@latest  # Auto-detected from your lockfile
+        with:
+          node-version: 22            # Resolves to the latest 22.x release
+          # path: .                   # Project root, if not the repo root
+          # package-manager: pnpm@latest  # Auto-detected from your lockfile
 
   deploy:
     needs: build
