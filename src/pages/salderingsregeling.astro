@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CallToAction from '../components/CallToAction.astro';
+import CheckList from '../components/CheckList.astro';
+import ContactCard from '../components/ContactCard.astro';
+import { emailLinks, site } from '../data/site';
+
+const title = `Salderingsregeling stopt in 2027 — ${site.name}`;
+const description = `Per 1 januari 2027 stopt de salderingsregeling. Ontdek wat er verandert en hoe u uw eigen zonne-energie beter kunt gebruiken. Gratis adviesgesprek in ${site.city}.`;
+
+const options = [
+  '<strong>Verbruik verschuiven naar zonne-uren</strong> — denk aan de wasmachine, vaatwasser, warmtepomp of boiler.',
+  '<strong>Slim laden van een elektrische auto</strong> — laden op momenten dat de zon schijnt in plaats van \'s avonds.',
+  '<strong>Beoordelen of een thuisbatterij zin heeft</strong> — niet altijd, en zeker niet voor iedereen.',
+  '<strong>Sturen op eigen opwek en verbruik</strong> — met bestaande apparatuur waar dat kan.',
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogTitle="Per 1 januari 2027 stopt de salderingsregeling"
+  ogDescription="Zonnepanelen? Zelf opgewekte stroom wordt na 2026 belangrijker. Onafhankelijk advies over slim energiebeheer."
+  ogType="article"
+>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Zonnepanelen &amp; energiebeheer</span>
+      <h1>Heeft u zonnepanelen? Per 1 januari 2027 stopt de salderingsregeling.</h1>
+      <p class="lede">
+        Terugleveren aan het net levert vanaf dan veel minder op. De stroom die u
+        zelf gebruikt, wordt juist meer waard. Hieronder leest u wat er verandert en
+        wat u kunt doen.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid-2 grid-start grid-gap-xl">
+        <div class="prose">
+          <h2>Wat verandert er?</h2>
+          <p>
+            Tot nu toe kunt u de stroom die u teruglevert verrekenen met de stroom die
+            u verbruikt. Dat stopt op <strong>1 januari 2027</strong>. Teruglevering
+            aan het net levert dan veel minder op dan nu.
+          </p>
+          <p>
+            Daarom loont het om de stroom van uw eigen zonnepanelen zelf te gebruiken,
+            op het moment dat u hem opwekt of later op de dag.
+          </p>
+
+          <div class="note">
+            <p>
+              <strong>Goed om te weten:</strong> uw zonnepanelen blijven gewoon
+              stroom opwekken. Alleen de manier waarop teruggeleverde stroom wordt
+              verrekend, verandert.
+            </p>
+          </div>
+
+          <h2>Wat kunt u doen?</h2>
+          <p>
+            De beste aanpak verschilt per huishouden. Dit zijn de knoppen waaraan we
+            samen kunnen draaien:
+          </p>
+          <CheckList items={options} class="checklist--spaced" />
+
+          <h2>Even voorstellen</h2>
+          <p>
+            Ik ben <strong>{site.owner.firstName}</strong> en woon in {site.city}, bij u in de buurt.
+            Ik heb een opleiding in computer engineering aan de
+            <strong>TU Delft</strong> en ben gespecialiseerd in slimmer
+            energiemanagement.
+          </p>
+          <p>
+            Ik ben <strong>onafhankelijk</strong> en niet gebonden aan een merk. Daarom
+            kijk ik eerst naar wat u al heeft en wat bij úw situatie past. Waar mogelijk
+            kies ik voor oplossingen <strong>zonder abonnement</strong> die
+            <strong>zo min mogelijk afhankelijk zijn van de cloud</strong>.
+          </p>
+
+          <h2>Gratis adviesgesprek</h2>
+          <p>
+            Ik kom graag langs voor een <strong>gratis en vrijblijvend
+            adviesgesprek</strong>. Dan bekijken we samen wat uw situatie is, welke
+            mogelijkheden er zijn en wat er eventueel aangepast moet worden om goed
+            voorbereid te zijn op het einde van de salderingsregeling.
+          </p>
+          <p>
+            Denk aan verbruik verschuiven naar zonne-uren, slim laden van een
+            elektrische auto, of beoordelen of een thuisbatterij voor u zin heeft. Naar
+            aanleiding van het gesprek kan ik een offerte opstellen voor de gewenste
+            aanpassingen.
+          </p>
+          <p>
+            Woonachtig in {site.serviceAreaOr}? Mail gerust om een afspraak in
+            te plannen.
+          </p>
+        </div>
+
+        <ContactCard
+          title="Plan een gratis adviesgesprek"
+          intro={`Vrijblijvend, bij u thuis in ${site.serviceArea}. We kijken samen wat er nodig is — en wat vooral niet.`}
+          emailHref={emailLinks.solar}
+          date="1 januari 2027"
+        >
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+            <span><strong>E-mail</strong>{site.email}</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+            <span><strong>Werkgebied</strong>{site.serviceArea}</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v4l3 2"></path><circle cx="12" cy="12" r="9"></circle></svg>
+            <span><strong>Reactie</strong>{site.responseTime}</span>
+          </li>
+        </ContactCard>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction href="/contact" label="Naar contact">
+    <strong>Niet zeker of dit voor u geldt?</strong> Mail uw vraag — ik denk graag mee.
+  </CallToAction>
+</BaseLayout>

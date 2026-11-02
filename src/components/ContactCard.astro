@@ -1,0 +1,31 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  intro: string;
+  emailHref: string;
+  date?: string;
+  buttonLabel?: string;
+}
+
+const {
+  title,
+  intro,
+  emailHref,
+  date,
+  buttonLabel = 'Stuur een e-mail',
+} = Astro.props;
+---
+
+<aside class="contact-card" aria-labelledby="contact-card-title">
+  {date && <span class="panel-date">{date}</span>}
+  <h2 id="contact-card-title">{title}</h2>
+  <p>{intro}</p>
+  <a class="mail-link" href={emailHref}>{site.email}</a>
+  <a class="btn btn-solar" href={emailHref}>{buttonLabel}</a>
+
+  <ul class="contact-list">
+    <slot />
+  </ul>
+</aside>

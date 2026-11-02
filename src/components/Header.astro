@@ -1,0 +1,69 @@
+---
+import { site } from '../data/site';
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/diensten', label: 'Diensten' },
+  { href: '/salderingsregeling', label: 'Zonnepanelen' },
+  { href: '/over-mij', label: 'Over mij' },
+  { href: '/contact', label: 'Contact', cta: true },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isCurrent = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath === href;
+---
+
+<header class="site-header">
+  <div class="wrap nav-bar">
+    <a class="brand" href="/" aria-label={`${site.name} — naar de homepage`}>
+      <img class="brand-logo" src="/logo.svg" alt="" width="52" height="52" />
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+      Menu
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      {navItems.map((item) => (
+        <li class={item.cta ? 'nav-cta' : undefined}>
+          <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const links = document.querySelector<HTMLElement>('#nav-links');
+
+  if (toggle && links) {
+    const setOpen = (open: boolean) => {
+      links.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(!links.classList.contains('is-open'));
+    });
+
+    links.addEventListener('click', (event) => {
+      if ((event.target as Element).closest('a')) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && links.classList.contains('is-open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>

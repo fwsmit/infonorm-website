@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CallToAction from '../components/CallToAction.astro';
+import CheckList from '../components/CheckList.astro';
+import { emailLinks, site } from '../data/site';
+
+const title = `Diensten — ${site.name}`;
+const description = `IT-advies, slim energiebeheer en automatisering op maat. Onafhankelijk advies van ${site.name} uit ${site.city}.`;
+
+const services = [
+  {
+    number: '01',
+    eyebrow: 'IT-advies & consultancy',
+    title: 'Weer overzicht in uw IT',
+    intro: 'Van een netwerk dat niet meer voldoet tot de vraag of u nu wel of niet naar de cloud moet. Ik breng de situatie in kaart en geef advies waar u iets mee kunt.',
+    body: 'Dat kan gaan om hardware, software, back-ups, wifi, privacy of een combinatie daarvan. U krijgt geen dik rapport dat in een la verdwijnt, maar een concreet verhaal met keuzes en gevolgen.',
+    cardTitle: 'Waar ik bij help',
+    items: [
+      'Tweede mening bij een offerte of leverancier',
+      'Netwerk, wifi en back-up inrichten of verbeteren',
+      'Software en licenties: wat is echt nodig?',
+      'Overstappen zonder data of werk kwijt te raken',
+    ],
+  },
+  {
+    number: '02',
+    eyebrow: 'Slim energiebeheer',
+    title: 'Meer uit uw zonnepanelen halen',
+    intro: 'Met het einde van de salderingsregeling verandert de rekensom. Zelf opgewekte stroom wordt waardevoller dan stroom die u teruglevert.',
+    body: 'Ik ben onafhankelijk en niet gebonden aan een merk. Daarom kijk ik eerst naar wat u al heeft — omvormer, meterkast, auto, warmtepomp — en wat bij úw situatie past. Waar mogelijk kies ik voor oplossingen zonder abonnement die zo min mogelijk afhankelijk zijn van de cloud.',
+    cardTitle: 'Mogelijkheden',
+    items: [
+      'Verbruik verschuiven naar zonne-uren',
+      'Slim laden van een elektrische auto',
+      'Sturen op eigen opwek en verbruik',
+      'Beoordelen of een thuisbatterij zin heeft',
+    ],
+    link: { href: '/salderingsregeling', label: 'Lees hoe u zich kunt voorbereiden op 2027 →' },
+  },
+  {
+    number: '03',
+    eyebrow: 'Automatisering & maatwerk',
+    title: 'Laat de computer het saaie werk doen',
+    intro: 'Terugkerende handelingen kosten tijd en veroorzaken fouten. Met een kleine tool, koppeling of een paar scripts is dat vaak zo opgelost.',
+    body: 'Ik bouw alleen wat nodig is, met begrijpelijke techniek en zonder leverancier die u daarna aan zich bindt. U krijgt de code en uitleg, zodat u zelf verder kunt.',
+    cardTitle: 'Voorbeelden',
+    items: [
+      'Bestanden en gegevens automatisch verwerken',
+      'Koppelingen tussen systemen die nu handmatig gaan',
+      'Een eenvoudig dashboard voor cijfers die nu ontbreken',
+      'Maatwerk waar bestaande software net niet past',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogTitle={`Diensten — ${site.name}`}
+  ogDescription="IT-advies, slim energiebeheer en automatisering op maat. Onafhankelijk en persoonlijk."
+>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Diensten</span>
+      <h1>Advies dat past bij wat u al heeft</h1>
+      <p class="lede">
+        Geen standaardpakket en geen merkverhaal. Ik kijk eerst naar uw situatie en
+        kom daarna met de eenvoudigste oplossing die het probleem echt oplost.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      {services.map((service) => (
+        <article class="grid grid-2 service">
+          <div>
+            <span class="eyebrow">{service.number} — {service.eyebrow}</span>
+            <h2>{service.title}</h2>
+            <p class="lede">{service.intro}</p>
+            <p>{service.body}</p>
+            {service.link && (
+              <p><a href={service.link.href}>{service.link.label}</a></p>
+            )}
+          </div>
+          <div class="card">
+            <h3>{service.cardTitle}</h3>
+            <CheckList items={service.items} />
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="approach-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Zo werk ik</span>
+        <h2 id="approach-title">Kort, duidelijk en zonder verplichtingen</h2>
+        <p class="lede">
+          U weet vooraf wat u kunt verwachten. Het eerste gesprek is altijd gratis en
+          vrijblijvend; daarna beslist u of we verdergaan.
+        </p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Gratis kennismaking</h3>
+          <p>We bespreken uw situatie en uw vraag. Bij u thuis, op kantoor of online.</p>
+        </li>
+        <li>
+          <h3>Helder advies</h3>
+          <p>U krijgt opties met voor- en nadelen, en een offerte voor het vervolg.</p>
+        </li>
+        <li>
+          <h3>Uitvoeren of overdragen</h3>
+          <p>Ik realiseer het of lever de bouwstenen op, inclusief uitleg en documentatie.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <CallToAction href={emailLinks.general} label={site.email}>
+    <strong>Iets wat hier niet tussen staat?</strong> Ook dan kunt u gewoon mailen.
+  </CallToAction>
+</BaseLayout>

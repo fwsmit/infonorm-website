@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CallToAction from '../components/CallToAction.astro';
+import CheckList from '../components/CheckList.astro';
+import { emailLinks, site } from '../data/site';
+
+const title = `${site.name} — onafhankelijk IT- en energieadvies in ${site.city}`;
+const description = `${site.name} is een onafhankelijk adviesbureau in ${site.city}. Slimme software, betrouwbare automatisering en energiebeheer dat zichzelf terugverdient.`;
+const solarPoints = [
+  'Uw huidige verbruik en wat er al aan apparatuur staat',
+  'Verbruik verschuiven naar de uren dat de zon schijnt',
+  'Slim laden van een elektrische auto of warmtepomp',
+  'Of een thuisbatterij voor úw situatie zin heeft',
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogTitle={`${site.name} — IT- en energieadvies in ${site.city}`}
+  ogDescription="Onafhankelijk advies over IT, automatisering en slim energiebeheer. Persoonlijk, nuchter en zonder abonnement waar mogelijk."
+>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">IT-advies uit {site.city}</span>
+        <h1>Techniek die <em>gewoon werkt</em>, met advies dat klopt.</h1>
+        <p class="lede">
+          Infonorm is een klein, onafhankelijk adviesbureau voor huishoudens en kleine
+          bedrijven. Ik help met slimme software, betrouwbare automatisering en
+          energiebeheer dat zichzelf terugverdient.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/contact">
+            Gratis adviesgesprek
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <a class="btn btn-secondary" href="/diensten">Bekijk diensten</a>
+        </div>
+
+        <ul class="hero-points">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            Onafhankelijk, niet merkgebonden
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            Lokaal en persoonlijk
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            Zonder abonnement waar het kan
+          </li>
+        </ul>
+      </div>
+
+      <aside class="hero-panel" aria-labelledby="panel-title">
+        <span class="panel-date">1 januari 2027</span>
+        <h2 id="panel-title">De salderingsregeling stopt</h2>
+        <p>
+          Zonnepanelen? Na 2026 levert terugleveren aan het net een stuk minder op.
+          Zelf gebruiken wordt dan de beste investering.
+        </p>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M19 5l-1.4 1.4M6.4 17.6 5 19" stroke-linecap="round"></path></svg>
+            Verbruik verschuiven naar zonne-uren
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6l-7-3Z" stroke-linejoin="round"></path></svg>
+            Thuisbatterij: zinvol of niet?
+          </li>
+        </ul>
+        <a class="btn btn-solar" href="/salderingsregeling">Lees wat er verandert</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Diensten</span>
+        <h2 id="services-title">Een paar dingen die ik goed kan</h2>
+        <p class="lede">
+          Van een concrete IT-vraag tot een plan voor uw zonnepanelen. Altijd met
+          eerst een eerlijk verhaal over wat nodig is — en wat niet.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+          </div>
+          <h3>IT-advies &amp; consultancy</h3>
+          <p>
+            Heldere keuzes zonder verkooppraat. Ik kijk naar wat u al heeft en adviseer
+            over hardware, software, netwerk en cloud — in begrijpelijke taal.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M19 5l-1.4 1.4M6.4 17.6 5 19"></path></svg>
+          </div>
+          <h3>Slim energiebeheer</h3>
+          <p>
+            Zelf uw zonne-energie gebruiken in plaats van wegstrepen. Slim laden,
+            verbruik verschuiven en een eerlijke afweging over een thuisbatterij.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13 5l-2 14"></path></svg>
+          </div>
+          <h3>Automatisering &amp; maatwerk</h3>
+          <p>
+            Kleine tools en koppelingen die terugkerend werk wegnemen: van
+            gegevensverwerking tot een dashboard waar u echt iets aan heeft.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="solar-title">
+    <div class="wrap">
+      <div class="grid grid-2 grid-center grid-gap-lg">
+        <div>
+          <span class="eyebrow">Zonnepanelen &amp; energie</span>
+          <h2 id="solar-title">Na 2026 telt elke zelfgebruikte kWh</h2>
+          <p class="lede">
+            De salderingsregeling stopt op 1 januari 2027. Wat u teruglevert, levert
+            daarna veel minder op. De oplossing zit meestal niet in meer panelen, maar
+            in slimmer gebruiken wat u al opwekt.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="/salderingsregeling">Lees over de overstap</a>
+            <a class="btn btn-secondary" href="/contact">Plan een gratis gesprek</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Waar we samen naar kijken</h3>
+          <CheckList items={solarPoints} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Werkwijze</span>
+        <h2 id="process-title">Eerst snappen, dan pas bouwen</h2>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <h3>Kennismaken</h3>
+          <p>Een gratis en vrijblijvend gesprek, bij u in de buurt of online. We bespreken uw situatie en wat u zoekt.</p>
+        </li>
+        <li>
+          <h3>Advies op maat</h3>
+          <p>Een helder advies met concrete opties en een offerte. Geen verplichtingen, geen verrassingen achteraf.</p>
+        </li>
+        <li>
+          <h3>Uitvoeren &amp; overdragen</h3>
+          <p>Ik realiseer of begeleid het traject en leg alles zo uit dat u er zelf mee verder kunt.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <CallToAction href={emailLinks.general} label={site.email}>
+    <strong>Eerst even sparren?</strong> Mail gerust — ook als u nog niet weet wat u precies nodig heeft.
+  </CallToAction>
+</BaseLayout>

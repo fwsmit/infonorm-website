@@ -1,0 +1,104 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import portrait from '../assets/profielfoto_friso.png';
+import { site } from '../data/site';
+
+const title = `Over mij — ${site.name}`;
+const description = `Even voorstellen: ${site.owner.firstName}, oprichter van ${site.name} in ${site.city}. Computer engineering aan de TU Delft, gespecialiseerd in slim energiemanagement.`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogTitle={`Over mij — ${site.name}`}
+  ogDescription={`Onafhankelijk IT- en energieadvies uit ${site.city}. Persoonlijk, nuchter en zonder abonnement waar het kan.`}
+  ogType="profile"
+>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Over mij</span>
+      <h1>Even voorstellen</h1>
+      <p class="lede">
+        Ik ben {site.owner.name}, oprichter van {site.name}. Ik woon in {site.city} en help
+        mensen in de buurt met techniek die hun leven eenvoudiger maakt.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="about-layout">
+        <figure class="portrait">
+          <Image
+            src={portrait}
+            width={471}
+            height={628}
+            alt={`Portretfoto van ${site.owner.firstName}, oprichter van ${site.name}`}
+            loading="lazy"
+          />
+          <figcaption>{site.owner.firstName} · {site.name} · {site.city}</figcaption>
+        </figure>
+
+        <div class="prose">
+          <h2>Techniek begrijpelijk maken</h2>
+          <p>
+            Ik heb een opleiding in computer engineering aan de <strong>TU Delft</strong>
+            en ben gespecialiseerd in slimmer energiemanagement. Wat mij betreft is
+            techniek pas geslaagd als u er zelf iets aan heeft — en als u begrijpt
+            waarom een oplossing werkt.
+          </p>
+          <p>
+            Daarom krijg ik graag eerst een goed beeld van uw situatie. Wat heeft u al?
+            Waar loopt u tegenaan? En wat wilt u over een paar jaar bereiken? Pas
+            daarna komt er een advies.
+          </p>
+
+          <h2>Onafhankelijk, zonder merkverhaal</h2>
+          <p>
+            Ik ben <strong>onafhankelijk</strong> en niet gebonden aan een merk. Ik
+            kijk eerst naar wat u al heeft en wat bij úw situatie past. Waar mogelijk
+            kies ik voor oplossingen <strong>zonder abonnement</strong> die
+            <strong>zo min mogelijk afhankelijk zijn van de cloud</strong>.
+          </p>
+          <p>
+            Dat betekent soms ook: niets vervangen. Als uw huidige installatie nog
+            prima voldoet, dan zeg ik dat liever dan dat ik iets nieuws verkoop.
+          </p>
+
+          <h2>Lokaal en persoonlijk</h2>
+          <p>
+            Infonorm is bewust klein. U spreekt direct met mij, zonder callcenter of
+            doorverwijzingen. Ik kom graag langs in {site.serviceArea}, want
+            de beste gesprekken voert u nog altijd aan de keukentafel of in de
+            meterkast.
+          </p>
+
+          <ul class="facts">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 4 2 10l10 6 10-6Z"></path><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path></svg>
+              <span>Computer engineering, TU Delft</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+              <span>Gevestigd in {site.city}</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6l-7-3Z"></path></svg>
+              <span>Onafhankelijk en niet merkgebonden</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+              <span>Zonder abonnement waar het kan</span>
+            </li>
+          </ul>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" href="/contact">Neem contact op</a>
+            <a class="btn btn-secondary" href="/diensten">Bekijk diensten</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
