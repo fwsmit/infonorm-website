@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Diensten — infonorm</title>
-  <meta name="description" content="IT-advies, slim energiebeheer en automatisering op maat. Onafhankelijk advies van infonorm uit Noordwijkerhout.">
-  <meta property="og:title" content="Diensten — infonorm">
+  <title>Diensten — {{ site_name }}</title>
+  <meta name="description" content="IT-advies, slim energiebeheer en automatisering op maat. Onafhankelijk advies van {{ site_name }} uit {{ city }}.">
+  <meta property="og:title" content="Diensten — {{ site_name }}">
   <meta property="og:description" content="IT-advies, slim energiebeheer en automatisering op maat. Onafhankelijk en persoonlijk.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -16,7 +16,7 @@
 
   <header class="site-header">
     <div class="wrap nav-bar">
-      <a class="brand" href="index.html" aria-label="infonorm — naar de homepage">
+      <a class="brand" href="index.html" aria-label="{{ site_name }} — naar de homepage">
         <img class="brand-logo" src="logo.svg" alt="" width="52" height="52">
       </a>
 
@@ -161,7 +161,7 @@
     <section class="deadline">
       <div class="wrap">
         <p><strong>Iets wat hier niet tussen staat?</strong> Ook dan kunt u gewoon mailen.</p>
-        <a class="btn btn-solar" href="mailto:info@infonorm.nl">info@infonorm.nl</a>
+        <a class="btn btn-solar" href="{{ email_url }}">{{ email }}</a>
       </div>
     </section>
   </main>

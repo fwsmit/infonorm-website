@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>infonorm — onafhankelijk IT- en energieadvies in Noordwijkerhout</title>
-  <meta name="description" content="infonorm is een onafhankelijk adviesbureau in Noordwijkerhout. Slimme software, betrouwbare automatisering en energiebeheer dat zichzelf terugverdient.">
-  <meta property="og:title" content="infonorm — IT- en energieadvies in Noordwijkerhout">
+  <title>{{ site_name }} — onafhankelijk IT- en energieadvies in {{ city }}</title>
+  <meta name="description" content="{{ site_name }} is een onafhankelijk adviesbureau in {{ city }}. Slimme software, betrouwbare automatisering en energiebeheer dat zichzelf terugverdient.">
+  <meta property="og:title" content="{{ site_name }} — IT- en energieadvies in {{ city }}">
   <meta property="og:description" content="Onafhankelijk advies over IT, automatisering en slim energiebeheer. Persoonlijk, nuchter en zonder abonnement waar mogelijk.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -16,7 +16,7 @@
 
   <header class="site-header">
     <div class="wrap nav-bar">
-      <a class="brand" href="index.html" aria-label="infonorm — naar de homepage">
+      <a class="brand" href="index.html" aria-label="{{ site_name }} — naar de homepage">
         <img class="brand-logo" src="logo.svg" alt="" width="52" height="52">
       </a>
 
@@ -41,10 +41,10 @@
     <section class="hero">
       <div class="wrap hero-inner">
         <div>
-          <span class="eyebrow">IT-advies uit Noordwijkerhout</span>
+          <span class="eyebrow">IT-advies uit {{ city }}</span>
           <h1>Techniek die <em>gewoon werkt</em>, met advies dat klopt.</h1>
           <p class="lede">
-            infonorm is een klein, onafhankelijk adviesbureau voor huishoudens en kleine
+            Infonorm is een klein, onafhankelijk adviesbureau voor huishoudens en kleine
             bedrijven. Ik help met slimme software, betrouwbare automatisering en
             energiebeheer dat zichzelf terugverdient.
           </p>
@@ -211,7 +211,7 @@
     <section class="deadline">
       <div class="wrap">
         <p><strong>Eerst even sparren?</strong> Mail gerust — ook als u nog niet weet wat u precies nodig heeft.</p>
-        <a class="btn btn-solar" href="mailto:info@infonorm.nl">info@infonorm.nl</a>
+        <a class="btn btn-solar" href="{{ email_url }}">{{ email }}</a>
       </div>
     </section>
   </main>

@@ -2,10 +2,10 @@
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <a class="brand" href="index.html" aria-label="infonorm — naar de homepage">
+          <a class="brand" href="index.html" aria-label="{{ site_name }} — naar de homepage">
             <img class="brand-logo" src="logo.svg" alt="" width="52" height="52">
           </a>
-          <p>Onafhankelijk IT- en energieadvies uit Noordwijkerhout. Persoonlijk, nuchter en zonder onnodige abonnementen.</p>
+          <p>Onafhankelijk IT- en energieadvies uit {{ city }}. Persoonlijk, nuchter en zonder onnodige abonnementen.</p>
         </div>
 
         <div>
@@ -21,14 +21,14 @@
         <div>
           <h3>Contact</h3>
           <ul>
-            <li><a href="mailto:info@infonorm.nl">info@infonorm.nl</a></li>
-            <li>Noordwijkerhout, Nederland</li>
+            <li><a href="{{ email_url }}">{{ email }}</a></li>
+            <li>{{ location }}</li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="year">2026</span> infonorm · Friso Smit</span>
+        <span>© <span id="year">2026</span> {{ site_name }} · {{ owner_name }}</span>
       </div>
     </div>
   </footer>

@@ -1,4 +1,4 @@
-// infonorm — small progressive-enhancement script
+// Infonorm — small progressive-enhancement script
 (function () {
   document.documentElement.classList.add('js');
 

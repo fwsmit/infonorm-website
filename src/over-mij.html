@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Over mij — Infonorm</title>
-  <meta name="description" content="Even voorstellen: Friso, oprichter van Infonorm in Noordwijkerhout. Computer engineering aan de TU Delft, gespecialiseerd in slim energiemanagement.">
-  <meta property="og:title" content="Over mij — Infonorm">
-  <meta property="og:description" content="Onafhankelijk IT- en energieadvies uit Noordwijkerhout. Persoonlijk, nuchter en zonder abonnement waar het kan.">
+  <title>Over mij — {{ site_name }}</title>
+  <meta name="description" content="Even voorstellen: {{ owner_first_name }}, oprichter van {{ site_name }} in {{ city }}. Computer engineering aan de TU Delft, gespecialiseerd in slim energiemanagement.">
+  <meta property="og:title" content="Over mij — {{ site_name }}">
+  <meta property="og:description" content="Onafhankelijk IT- en energieadvies uit {{ city }}. Persoonlijk, nuchter en zonder abonnement waar het kan.">
   <meta property="og:type" content="profile">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -16,7 +16,7 @@
 
   <header class="site-header">
     <div class="wrap nav-bar">
-      <a class="brand" href="index.html" aria-label="Infonorm — naar de homepage">
+      <a class="brand" href="index.html" aria-label="{{ site_name }} — naar de homepage">
         <img class="brand-logo" src="logo.svg" alt="" width="52" height="52">
       </a>
 
@@ -43,7 +43,7 @@
         <span class="eyebrow">Over mij</span>
         <h1>Even voorstellen</h1>
         <p class="lede">
-          Ik ben Friso Smit, oprichter van infonorm. Ik woon in Noordwijkerhout en help
+          Ik ben {{ owner_name }}, oprichter van {{ site_name }}. Ik woon in {{ city }} en help
           mensen in de buurt met techniek die hun leven eenvoudiger maakt.
         </p>
       </div>
@@ -55,9 +55,9 @@
           <figure class="portrait" style="margin: 0;">
             <img src="assets/img/profielfoto_friso.png"
                  width="471" height="628"
-                 alt="Portretfoto van Friso, oprichter van infonorm"
+                 alt="Portretfoto van {{ owner_first_name }}, oprichter van {{ site_name }}"
                  loading="lazy">
-            <figcaption>Friso · infonorm · Noordwijkerhout</figcaption>
+            <figcaption>{{ owner_first_name }} · {{ site_name }} · {{ city }}</figcaption>
           </figure>
 
           <div class="prose">
@@ -88,8 +88,8 @@
 
             <h2>Lokaal en persoonlijk</h2>
             <p>
-              infonorm is bewust klein. U spreekt direct met mij, zonder callcenter of
-              doorverwijzingen. Ik kom graag langs in Noordwijkerhout en omgeving, want
+              Infonorm is bewust klein. U spreekt direct met mij, zonder callcenter of
+              doorverwijzingen. Ik kom graag langs in {{ service_area }}, want
               de beste gesprekken voert u nog altijd aan de keukentafel of in de
               meterkast.
             </p>
@@ -101,7 +101,7 @@
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-                <span>Gevestigd in Noordwijkerhout</span>
+                <span>Gevestigd in {{ city }}</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6l-7-3Z"/></svg>

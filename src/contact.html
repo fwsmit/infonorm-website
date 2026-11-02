@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact — infonorm</title>
-  <meta name="description" content="Neem contact op met infonorm in Noordwijkerhout. Mail info@infonorm.nl voor een gratis adviesgesprek over IT, automatisering of energiebeheer.">
-  <meta property="og:title" content="Contact — infonorm">
-  <meta property="og:description" content="Mail info@infonorm.nl voor een gratis en vrijblijvend adviesgesprek.">
+  <title>Contact — {{ site_name }}</title>
+  <meta name="description" content="Neem contact op met {{ site_name }} in {{ city }}. Mail {{ email }} voor een gratis adviesgesprek over IT, automatisering of energiebeheer.">
+  <meta property="og:title" content="Contact — {{ site_name }}">
+  <meta property="og:description" content="Mail {{ email }} voor een gratis en vrijblijvend adviesgesprek.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -16,7 +16,7 @@
 
   <header class="site-header">
     <div class="wrap nav-bar">
-      <a class="brand" href="index.html" aria-label="infonorm — naar de homepage">
+      <a class="brand" href="index.html" aria-label="{{ site_name }} — naar de homepage">
         <img class="brand-logo" src="logo.svg" alt="" width="52" height="52">
       </a>
 
@@ -93,8 +93,8 @@
           <aside class="contact-card" aria-labelledby="contact-card-title">
             <h2 id="contact-card-title">Direct contact</h2>
             <p>De snelste manier om mij te bereiken is per e-mail.</p>
-            <a class="mail-link" href="mailto:info@infonorm.nl">info@infonorm.nl</a>
-            <a class="btn btn-solar" href="mailto:info@infonorm.nl?subject=Adviesaanvraag%20via%20infonorm.nl">
+            <a class="mail-link" href="{{ email_url }}">{{ email }}</a>
+            <a class="btn btn-solar" href="{{ email_url_advice }}">
               Stuur een e-mail
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
@@ -102,19 +102,19 @@
             <ul class="contact-list">
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                <span><strong>E-mail</strong>info@infonorm.nl</span>
+                <span><strong>E-mail</strong>{{ email }}</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-                <span><strong>Locatie</strong>Noordwijkerhout, Nederland</span>
+                <span><strong>Locatie</strong>{{ location }}</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L3 21l1.1-9A8.4 8.4 0 1 1 21 11.5Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>
-                <span><strong>WhatsApp</strong>Op aanvraag via e-mail</span>
+                <span><strong>WhatsApp</strong>{{ whatsapp }}</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg>
-                <span><strong>Reactietijd</strong>Meestal binnen één werkdag</span>
+                <span><strong>Reactietijd</strong>{{ response_time }}</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
@@ -122,7 +122,7 @@
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.19 1.46-2.19 2.97V21h-4V9Z"/></svg>
-                <span><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/friso-smit-884a19445/" target="_blank" rel="noopener noreferrer">Friso Smit</a></span>
+                <span><strong>LinkedIn</strong><a href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer">{{ linkedin_label }}</a></span>
               </li>
             </ul>
           </aside>
