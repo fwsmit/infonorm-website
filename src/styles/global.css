@@ -219,6 +219,9 @@ a:hover { color: var(--navy); }
 .btn-solar:hover { background: #e79a2b; color: #35240a; }
 
 .section { padding: 4.5rem 0; }
+
+/* Keep in-page anchor targets clear of the sticky header */
+section[id] { scroll-margin-top: 88px; }
 .section-alt { background: var(--paper-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section-head { max-width: 66ch; margin-bottom: 2.4rem; }
 
