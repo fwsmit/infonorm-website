@@ -4,7 +4,8 @@ import { site } from '../data/site';
 interface Props {
   title: string;
   intro: string;
-  emailHref: string;
+  emailHref?: string;
+  buttonHref?: string;
   date?: string;
   buttonLabel?: string;
 }
@@ -13,8 +14,9 @@ const {
   title,
   intro,
   emailHref,
+  buttonHref = emailHref,
   date,
-  buttonLabel = 'Stuur een e-mail',
+  buttonLabel = emailHref ? 'Stuur een e-mail' : 'Naar contact',
 } = Astro.props;
 ---
 
@@ -22,10 +24,12 @@ const {
   {date && <span class="panel-date">{date}</span>}
   <h2 id="contact-card-title">{title}</h2>
   <p>{intro}</p>
-  <a class="mail-link" href={emailHref}>{site.email}</a>
-  <a class="btn btn-solar" href={emailHref}>{buttonLabel}</a>
+  {emailHref && <a class="mail-link" href={emailHref}>{site.email}</a>}
+  {buttonHref && <a class="btn btn-solar" href={buttonHref}>{buttonLabel}</a>}
 
-  <ul class="contact-list">
-    <slot />
-  </ul>
+  {Astro.slots.has('default') && (
+    <ul class="contact-list">
+      <slot />
+    </ul>
+  )}
 </aside>
