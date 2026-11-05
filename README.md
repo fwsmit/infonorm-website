@@ -24,8 +24,9 @@ src/
 │   └── contact.astro        Contact
 └── styles/global.css        Alle styling
 public/
-├── favicon.svg
-└── logo.svg
+├── apple-touch-icon.png  Gegenereerd uit logo.svg (180×180)
+├── favicon.ico           Gegenereerd uit logo.svg (48/32/16 px)
+└── logo.svg              Het logo; wordt ook als favicon gebruikt
 ```
 
 ## Commands
@@ -45,7 +46,14 @@ npm run preview   # bekijk de productiebuild lokaal
 - **Navigatie:** pas `navItems` in `src/components/Header.astro` aan.
 - **Footer:** pas `src/components/Footer.astro` aan.
 - **Profielfoto:** vervang `src/assets/profielfoto_friso.png`.
-- **Logo en favicon:** vervang `public/logo.svg` en `public/favicon.svg`.
+- **Logo en favicon:** vervang `public/logo.svg`. De favicon verwijst rechtstreeks
+  naar dit bestand; genereer daarna de overige iconen opnieuw:
+
+  ```bash
+  cd public
+  magick -background none logo.svg -define icon:auto-resize=48,32,16 favicon.ico
+  magick -background '#0d2a5c' logo.svg -flatten -resize 180x180 apple-touch-icon.png
+  ```
 - **Kleuren en typografie:** bovenaan `src/styles/global.css` bij `:root`.
 
 Na een wijziging bouwt `npm run build` de volledige site opnieuw in `dist/`.
