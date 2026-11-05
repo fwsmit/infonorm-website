@@ -17,6 +17,7 @@
   --radius: 14px;
   --shadow: 0 10px 30px rgba(19, 39, 67, 0.08);
   --wrap: 1120px;
+  --gutter: 24px;
   --font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -64,7 +65,7 @@ a:hover { color: var(--navy); }
   width: 100%;
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--gutter);
 }
 
 .skip-link {
@@ -272,7 +273,10 @@ section[id] { scroll-margin-top: 88px; }
   grid-template-columns: 1.15fr .85fr;
   gap: 3rem;
   align-items: center;
-  padding: 4.5rem 0 4.8rem;
+  /* Use longhands: the `padding` shorthand would wipe out the
+     horizontal gutter that .wrap provides. */
+  padding-top: 4.5rem;
+  padding-bottom: 4.8rem;
 }
 
 .hero h1 { margin-bottom: 1rem; }
@@ -586,7 +590,7 @@ section[id] { scroll-margin-top: 88px; }
 /* ---------- responsive ---------- */
 
 @media (max-width: 940px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 2.2rem; padding: 3.2rem 0 3.5rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.2rem; padding-top: 3.2rem; padding-bottom: 3.5rem; }
   .hero-panel { max-width: 560px; }
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -596,8 +600,13 @@ section[id] { scroll-margin-top: 88px; }
 }
 
 @media (max-width: 760px) {
+  :root { --gutter: 20px; }
   body { font-size: 16px; }
   .section { padding: 3.2rem 0; }
+  .hero-inner { padding-top: 2.6rem; padding-bottom: 2.9rem; }
+  .hero-panel { padding: 1.5rem; }
+  .page-head { padding: 2.6rem 0 2rem; }
+  .card { padding: 1.35rem; }
 
   .nav-toggle { display: inline-flex; }
   .nav-links {
@@ -607,8 +616,8 @@ section[id] { scroll-margin-top: 88px; }
   .js .nav-links {
     display: none;
     position: absolute;
-    left: 16px;
-    right: 16px;
+    left: var(--gutter);
+    right: var(--gutter);
     top: calc(100% + 8px);
     background: #fff;
     border: 1px solid var(--line);
@@ -627,6 +636,18 @@ section[id] { scroll-margin-top: 88px; }
   .portrait { max-width: 320px; }
   .deadline .wrap { align-items: flex-start; }
   .footer-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+}
+
+@media (max-width: 560px) {
+  /* Full-width actions are easier to tap and keep text away from the edges. */
+  .btn-row .btn,
+  .deadline .btn { width: 100%; }
+  .deadline .wrap { align-items: stretch; }
+}
+
+@media (max-width: 380px) {
+  :root { --gutter: 16px; }
+  .hero-inner { padding-top: 2.2rem; padding-bottom: 2.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
